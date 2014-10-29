@@ -1,0 +1,109 @@
+
+<style type="text/css">
+<!--
+.header 
+{
+    margin: 4px 250px;
+    border: 1px solid #ccc;
+    width: 40%;
+    font-weight: bold;
+    padding: 4px;    
+    background: #EEFFEE;
+}
+
+
+.header .title 
+{
+    font-size: 18px;
+}
+
+table
+{
+    width:  100%;
+}
+
+th
+{
+    text-align: center;
+    border: solid 1px #113300;
+    background: #EEFFEE;
+}
+
+tr.total
+{
+    border: solid 1px black;
+}
+
+td
+{
+    text-align: left;
+}
+
+td.value
+{
+    text-align: right;
+}
+
+td.important
+{
+    font-weight: bold;
+}
+
+td.notice
+{
+    color: red;  
+}
+
+-->
+</style>
+<div class="header">
+    <span class="title">Invoice title: <?php echo $data["title"]; ?> </span> <br />
+    <span>Invoice n°: <?php echo $data["fields"]["invoicenumber"]; ?></span> <br />
+    <span><?php echo !empty($data["fields"]["invoicedate"]["label"]) ? $data["fields"]["invoicedate"]["label"] : "Invoice date"; ?> : <?php echo $data["fields"]["invoicedate"]["start_date"]; ?></span> <br />
+    <span><?php echo !empty($data["fields"]["customer"]["label"]) ? $data["fields"]["customer"]["label"] : "Customer"; ?> : <?php echo $data["fields"]["customer"][0]; ?></span><br />
+    <span><?php echo !empty($data["fields"]["order"]["label"]) ? $data["fields"]["order"]["label"] : "Order"; ?> : <?php echo $data["fields"]["order"][0]; ?></span><br />
+</div>
+ 
+<br />
+<br />
+<table>
+    <col style="width:75%">
+    <col style="width:25%">
+    <thead>
+        <tr>
+            <th colspan="2" style="font-size: 14px;">
+                Invoice details
+            </th>
+        </tr>
+    </thead>
+    
+    <tr>
+        <td class="label"><?php echo !empty($data["fields"]["invoiceamount"]["label"]) ? $data["fields"]["invoiceamount"]["label"] : "Invoice amount"; ?></td>
+        <td class="value important"><?php echo  $data["fields"]["invoiceamount"]["currency"] . " " . number_format($data["fields"]["invoiceamount"]["value"], 2, '.', ' ') . " "; ?></td>
+    </tr>
+    <tr>
+        <td class="label"><?php echo !empty($data["fields"]["tax"]["label"]) ? $data["fields"]["tax"]["label"] : "Tax"; ?></td>
+        <td class="value"><?php echo  $data["fields"]["tax"]["currency"] . " " . number_format($data["fields"]["tax"]["value"], 2, '.', ' ') . " "; ?></td>
+    </tr>
+    <tr>
+        <td class="label"><?php echo !empty($data["fields"]["shipping"]["label"]) ? $data["fields"]["shipping"]["label"] : "Shipping"; ?></td>
+        <td class="value"><?php echo  $data["fields"]["shipping"]["currency"] . " " . number_format($data["fields"]["shipping"]["value"], 2, '.', ' ') . " "; ?></td>
+    </tr>    
+    <tr class="total">
+        <td class="label"><?php echo !empty($data["fields"]["invoice-w-tax"]["label"]) ? $data["fields"]["invoice-w-tax"]["label"] : "Invoice with tax"; ?></td>
+        <td class="value important notice"><?php echo  $data["fields"]["invoice-w-tax"]["currency"] . " " . number_format($data["fields"]["invoice-w-tax"]["value"], 2, '.', ' ') . " "; ?></td>
+    </tr>  
+    <tfoot>
+        <tr>
+            <th colspan="2" style="font-size: 14px;">
+                <?php echo !empty($data["fields"]["duedate"]["label"]) ? $data["fields"]["duedate"]["label"] : "Due date"; ?> : <?php echo $data["fields"]["duedate"]["start_date"];?>
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+<?php
+//echo '<pre>';
+//print_r($data);
+//echo '</pre>';
+?>

@@ -1,0 +1,62 @@
+Array
+(
+    [item_id] => 118413739
+    [title] => 11112
+    [created_on] => 2014-02-04 09:28:39
+    [app_item_id] => 1
+    [fields] => Array
+        (
+            [invoice-w-tax] => Array
+                (
+                    [currency] => NOK
+                    [value] => 5265.0000
+                )
+
+            [duedate] => Array
+                (
+                    [start_date] => 2014-02-19
+                    [end_date] => 
+                )
+
+            [invoicenumber] => 11112
+            [invoicedate] => Array
+                (
+                    [start_date] => 2014-02-05
+                    [end_date] => 
+                )
+
+            [invoiceamount] => Array
+                (
+                    [currency] => NOK
+                    [value] => 3900.0000
+                )
+
+            [shipping] => Array
+                (
+                    [currency] => NOK
+                    [value] => 312.0000
+                )
+
+            [tax] => Array
+                (
+                    [currency] => NOK
+                    [value] => 1053.0000
+                )
+
+            [customer] => Array
+                (
+                    [0] => 118390128
+                )
+
+            [order] => Array
+                (
+                    [0] => 118395889
+                )
+
+            [status] => Array
+                (
+                    [0] => 1
+                )
+
+        )
+)
